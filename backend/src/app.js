@@ -10,6 +10,11 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
+
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
+
+
 app.get("/", (req, res) => res.send("SafeHer Backend Running ✅"));
 
 module.exports = app;
